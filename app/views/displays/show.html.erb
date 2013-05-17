@@ -1,0 +1,36 @@
+<br />
+<div>
+    <table border="">
+    	<tbody>
+    		<% @datas.each do |data| %>
+    		<tr id="row-width">
+    			<td id="first"><%= data.col1 %></td>
+    			<td id="first"><%= data.col2 %></td>
+    			<td id="first"><%= data.col3 %></td>
+    			<td id="first"><%= data.col4 %></td>
+    			<td id="first"><%= data.col5 %></td>
+    			<td id="first"><%= data.col6 %></td>
+    			<td id="first"><%= data.col7 %></td>
+    			<td id="first"><%= data.col8 %></td>
+    			<td id="first"><%= data.col9 %></td>
+    			<td id="first"><%= data.col10 %></td>
+    		</tr>
+    		<% end %>
+        </tbody>
+    </table>
+    <table border="">
+        <tbody>
+            <tr id="row-width">
+                <td id="second"><%= @info.usr_name %></td>
+                <td id="second"><%= @info.usr_password %></td>
+            </tr>
+    	</tbody>
+    </table>
+</div>
+<script>
+$(function(){
+    $('td').draggable();
+});
+</script>
+
+

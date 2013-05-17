@@ -1,0 +1,36 @@
+<div>
+    <p><%= flash[:notice] %></p>
+    <%= form_tag displays_create_path do %>
+    <table>
+        <tbody>
+            <% @datas.each do |data| %>
+            <tr>
+              <%= hidden_field_tag nil, data.id, name: "datas[][id]" %>
+              <%= text_field_tag nil, data.col1, name: "datas[][col1]" %>
+              <%= text_field_tag nil, data.col2, name: "datas[][col2]" %>
+              <%= text_field_tag nil, data.col3, name: "datas[][col3]" %>
+              <%= text_field_tag nil, data.col4, name: "datas[][col4]" %>
+              <%= text_field_tag nil, data.col5, name: "datas[][col5]" %>
+              <%= text_field_tag nil, data.col6, name: "datas[][col6]" %>
+              <%= text_field_tag nil, data.col7, name: "datas[][col7]" %>
+              <%= text_field_tag nil, data.col8, name: "datas[][col8]" %>
+              <%= text_field_tag nil, data.col9, name: "datas[][col9]" %>
+              <%= text_field_tag nil, data.col10, name: "datas[][col10]" %>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <table>
+        <tbody>
+            <tr>
+                <%= hidden_field_tag nil, @info.id, name: "info[][id]" %>
+                <%= text_field_tag nil, @info.usr_name, name: "info[][usr_name]" %>
+                <%= text_field_tag nil, @info.usr_password, name: "info[][usr_password]" %>
+            </tr>
+        </tbody>
+    </table>
+    <%= submit_tag "登録", disable_with: "登録中" %>
+    <% end %>
+</div>
+
+
