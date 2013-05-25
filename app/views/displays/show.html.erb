@@ -1,5 +1,7 @@
-<br />
-<div>
+<div class="row">
+
+
+<div class="span11">
     <table border="">
     	<tbody>
     		<% @datas.each do |data| %>
@@ -18,19 +20,18 @@
     		<% end %>
         </tbody>
     </table>
-    <table border="">
+</div>
+</div>
+<div class="row">
+    <div class="span11">
+            <table border="">
         <tbody>
             <tr id="row-width">
                 <td id="second"><%= @info.usr_name %></td>
                 <td id="second"><%= @info.usr_password %></td>
             </tr>
-    	</tbody>
+        </tbody>
     </table>
+    </div>
 </div>
-<script>
-$(function(){
-    $('td').draggable();
-});
-</script>
-
 

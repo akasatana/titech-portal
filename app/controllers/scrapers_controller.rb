@@ -1,8 +1,8 @@
 #encoding: utf-8
 class ScrapersController < ApplicationController
 	def scrape
-
-		redirect_to root_path
+		#redirect結果も場合分け
+		redirect_to root_path, :notice => "スクレイピングに成功しました"
 
 		driver = Selenium::WebDriver.for :chrome #safari,firefox,ieでの対応も
 		driver.get "http://portal.titech.ac.jp"
@@ -21,7 +21,7 @@ class ScrapersController < ApplicationController
 		end
 
         #入力データが間違っていた場合のエラー処理
-		info = Scraper.first
+		info = Account.where(user_id: current_user.id).first
 		driver.find_element(:name => "usr_name").send_keys info.usr_name
 		driver.find_element(:name => "usr_password").send_keys info.usr_password
 		driver.find_element(:name => "OK").click
@@ -32,7 +32,7 @@ class ScrapersController < ApplicationController
             part = str[index].delete("[]").split(",")
 		    char = part[0]
 		    row = part[1].to_i
-		    data = Display.find(row)
+		    data = Table.where(user_id: current_user.id)[row - 1]
 		    column = case char
 		    when "A" then data.col1
 		    when "B" then data.col2
