@@ -1,11 +1,11 @@
 <div class="row">
 	<div class="span11" style="text-align:center;">
         <ul>
-	        <%= link_to "ホーム", root_path %>
-	        <%= link_to "表示", displays_show_path %>
-	        <%= link_to "編集", displays_edit_path %>
-	        <%= link_to "スクレイピング", scrapers_scrape_path %>
-	        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+	        <%= link_to_unless_current "ホーム", root_path %> |
+	        <%= link_to_unless_current "表示", displays_show_path %> |
+	        <%= link_to_unless_current "編集", displays_edit_path %> |
+	        <%= link_to_unless_current "スクレイピング", scrapers_scrape_path %> |
+	        <%= link_to_unless_current "ログアウト", destroy_user_session_path, method: :delete %>
         </ul>
     </div>
 </div>
