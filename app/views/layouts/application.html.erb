@@ -2,25 +2,23 @@
 <html lang="ja">
 <head>
 	<meta charset="utf-8">
-	<title>ポータルログイン</title>
+	<title>Titech</title>
 	<%= stylesheet_link_tag "application", media: "all" %>
 	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
-<div class="row">
-<div class="span5"></div>
-<div class="span5">
-	<div class="row">
-		<ul>
-			<%= link_to "ホーム", root_path %>
-			<%= link_to "表示", displays_show_path %>
-			<%= link_to "編集", displays_edit_path %>
-			<%= link_to "ログイン", scrapers_scrape_path %>
-	    <div class="row">
-	    	<%= yield %>
-	    </div>
-	</div>
+	<div style="background:gray;">
+	<div class="container">
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 </div>
 </div>
+    <div class="container">
+	    <% if controller.controller_name == "displays" %>
+	    <%= render "layouts/header" %>
+	    <% end %>
+        <%= yield %>
+    </div>
 </body>
 </html>
