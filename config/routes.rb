@@ -1,6 +1,10 @@
 Portal::Application.routes.draw do
+  devise_for :users
+
+  #devise_for :users
+  #deviseはroutes.rbに原因ある
+  #RESTにする
   root :to => 'displays#home'
-  match "/", :controller => 'displays', :action => 'home'
   match "/displays/show", :controller => 'displays', :action => 'show'
   match "/displays/edit", :controller => 'displays', :action => 'edit'
   match "/displays/create", :controller => 'displays', :action => 'create'

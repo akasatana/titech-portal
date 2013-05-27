@@ -10,6 +10,7 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //jquery.ui.allだと遅い
+//require bootstrapを追加　jqueryを打ち消す
 //
 //= require jquery
 //= require jquery_ujs

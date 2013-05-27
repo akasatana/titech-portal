@@ -1,6 +1,6 @@
-class CreateScrapers < ActiveRecord::Migration
+class CreateAccounts < ActiveRecord::Migration
   def change
-    create_table :scrapers do |t|
+    create_table :accounts do |t|
       t.string :usr_name
       t.string :usr_password
 

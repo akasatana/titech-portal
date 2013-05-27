@@ -1,6 +1,6 @@
-class CreateDisplays < ActiveRecord::Migration
+class CreateTables < ActiveRecord::Migration
   def change
-    create_table :displays do |t|
+    create_table :tables do |t|
       t.string :col1
       t.string :col2
       t.string :col3
