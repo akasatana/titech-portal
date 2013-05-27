@@ -12,6 +12,10 @@ gem 'pry-rails'
 gem 'pry-remote'
 end
 
+group :production do
+gem 'pg'
+end
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.5'
   gem 'bootstrap-sass', '2.0.2'
