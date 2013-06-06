@@ -1,0 +1,40 @@
+$gray1:#F6F6F6;
+$gray2:#F0F0F0;
+$gray3:#E3E3E3;
+$gray4:#D6D6D6;
+$gray5:#A6A6A6;
+
+.fake-input{
+  position:relative;
+  border:1px solid $gray3;
+  background:$gray2;
+  //@include border-radius(3px);
+  width:350px;
+  color:$gray5;
+  line-height: 60px;
+  font-weight:bold;
+  padding:0 6px;
+  overflow:hidden;
+  //text-align:center;
+}
+.fake-text{
+  background:rgb(223,236,170);
+  color:rgb(164,197,32);
+  border:1px solid rgb(192,216,96);
+}
+.fake-click-drag{
+  background:#F0F0F0;
+  color:#A6A6A6;
+  border:1px solid #E3E3E3;
+}
+.input-file-ch-sa, .input-file-fi{
+  position:absolute;
+  top:0;
+  left:0;
+  opacity:0;
+  width:350px;
+  height:60px;
+  /*
+  line-height: 10px;
+  */
+}

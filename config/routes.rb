@@ -1,14 +1,18 @@
 Portal::Application.routes.draw do
   devise_for :users
 
-  #devise_for :users
-  #deviseはroutes.rbに原因ある
   #RESTにする
-  root :to => 'displays#home'
-  match "/displays/show", :controller => 'displays', :action => 'show'
-  match "/displays/edit", :controller => 'displays', :action => 'edit'
-  match "/displays/create", :controller => 'displays', :action => 'create'
+  #resource :displays
+  #resource :scrapers
+  #resource :documents
+  root :to => "displays#show"
+  match "/displays/edit", :controller => "displays", :action => "edit"
+  match "/displays/create", :controller => "displays", :action => "create"
   match "/scrapers/scrape", :controller => 'scrapers', :action => 'scrape'
+  match "/documents/index", :controller => "documents", :action => "index"
+  match "/documents/upload", :controller => "documents", :action => "upload"
+  match "/documents/:id/download", :controller => "documents", :action => "download"
+  match "/documents/:id/destroy", :controller => "documents", :action => "destroy"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

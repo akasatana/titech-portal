@@ -1,9 +1,6 @@
 #encoding: utf-8
 class ScrapersController < ApplicationController
 	def scrape
-		#redirect結果も場合分け
-		#redirect_to root_path, :notice => "スクレイピングに成功しました"
-
 		driver = Selenium::WebDriver.for :chrome #safari,firefox,ieでの対応も
 		driver.get "http://portal.titech.ac.jp"
 
@@ -14,13 +11,13 @@ class ScrapersController < ApplicationController
 			    driver.navigate.back
 			    failure += 1
 			elsif failure >= 5
-				redirect_to(root_path, :notice => "スクレイピングに失敗しました　もう一度やり直してください") and return
+				driver.quit
+				redirect_to(root_path, :notice => "スクレイピングに失敗しました もう一度やり直してください") and return
 			else
 				break
 			end
 		end
 
-        #入力データが間違っていた場合のエラー処理
 		info = Account.where(user_id: current_user.id).first
 		driver.find_element(:name => "usr_name").send_keys info.usr_name
 		driver.find_element(:name => "usr_password").send_keys info.usr_password
@@ -51,9 +48,13 @@ class ScrapersController < ApplicationController
 		  end
 		  driver.find_element(:name => "OK").click
 		  driver.find_element(:link_text => "Tokyo Tech Mail")
+		  redirect_to root_path, :notice => "スクレイピングに成功しました"
+		  unless current_user.scraped
+		  	current_user.update_attributes!({scraped: true}, without_protection: true)
+		  end
 		rescue Selenium::WebDriver::Error::NoSuchElementError
-	      redirect_to(root_path, :notice => "スクレイピングに失敗しました　入力が間違っている可能性があります") and return
-		end
-		redirect_to(root_path, :notice => "スクレイピングに成功しました") and return 
+			driver.quit
+	    redirect_to(root_path, :notice => "スクレイピングに失敗しました 入力が間違っている可能性があります") and return
+		end 
 	end
 end

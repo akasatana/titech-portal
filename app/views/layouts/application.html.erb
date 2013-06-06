@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-	<meta charset="utf-8">
-	<title>Titech</title>
-	<%= stylesheet_link_tag "application", media: "all" %>
-	<%= javascript_include_tag "application" %>
-	<%= csrf_meta_tags %>
+  <meta charset="utf-8">
+  <title>Titech</title>
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
 </head>
 <body>
-	<div style="background:gray;">
-	<div class="container">
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-</div>
-</div>
-    <div class="container">
-	    <% if controller.controller_name == "displays" %>
-	    <%= render "layouts/header" %>
-	    <% end %>
-        <%= yield %>
+  <div id="flash">
+	<div class="container-fluid">
+	  <div class="row">
+	    <div class="span2">&nbsp;</div>
+	    <div class="span12">
+		  <% flash.to_hash.except(:timeout).each do |key, value| %>
+		  <%= value %>
+	      <% end %>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="container-fluid">
+   	<div class="row">
+   	  <div class="span2"><br>
+   		<% if controller.controller_name == "displays" || controller.controller_name == "documents" %>
+      <%# ここも保守性が悪い %>
+          <%= render "layouts/header" %>
+    	<% end %>
+      </div>
+      <div class="span12">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

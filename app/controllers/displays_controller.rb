@@ -3,8 +3,6 @@ class DisplaysController < ApplicationController
 	#before_filter :create_base
 	#before_filter :check_logged_in, :only => [:edit,:show]
 	def home
-		#多分場所オカシイ
-		redirect_to new_user_session_path unless user_signed_in?
 	end
 	def show
 		@datas = Table.where(user_id: current_user.id)
@@ -27,9 +25,9 @@ class DisplaysController < ApplicationController
 		else
 		    pass = Account.where(id: params[:info].first[:id]).first
 		    if pass.update_attributes(params[:info].first)
-		        redirect_to displays_edit_path, :notice => "登録しました"
+		        redirect_to root_path, :notice => "登録しました"
 		    else
-		    	redirect_to displays_edit_path, :notice => "登録出来ませんでした"
+		    	redirect_to root_path, :notice => "登録出来ませんでした"
 		    end
 		end
 	end

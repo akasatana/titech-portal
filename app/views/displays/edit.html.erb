@@ -1,10 +1,9 @@
 <div class="row">
-  <div class="span11">
-<div>
-    <%= form_tag displays_create_path do %>
-    <table align="left">
-        
-            <% @datas.each do |data| %>
+  <div class="span12">
+    <div>
+      <%= form_tag displays_create_path do %>
+        <table align="left">       
+          <% @datas.each do |data| %>
             <tr>
               <%= hidden_field_tag nil, data.id, name: "datas[][id]" %>
               <td><%= text_field_tag nil, data.col1, name: "datas[][col1]", class: "droppable" %></td>
@@ -18,28 +17,28 @@
               <td><%= text_field_tag nil, data.col9, name: "datas[][col9]", class: "droppable" %></td>
               <td><%= text_field_tag nil, data.col10, name: "datas[][col10]", class: "droppable" %></td>
             </tr>
-            <% end %>
-          </table>
-          <table align="left">
-            <tr>
-                <td><%= hidden_field_tag nil, @info.id, name: "info[][id]" %></td>
-                <td><%= text_field_tag nil, @info.usr_name, name: "info[][usr_name]" %></td>
-                <td><%= text_field_tag nil, @info.usr_password, name: "info[][usr_password]" %></td>
-    <td><%= submit_tag "登録", disable_with: "登録中" %></td>
-  </tr>
-    <% end %>
-    </table>
-</div>
-</div>
+          <% end %>
+        </table>
+        <table align="left">
+          <tr>
+            <td><%= hidden_field_tag nil, @info.id, name: "info[][id]" %></td>
+            <td><%= text_field_tag nil, @info.usr_name, name: "info[][usr_name]" %></td>
+            <td><%= text_field_tag nil, @info.usr_password, name: "info[][usr_password]" %></td>
+            <td><%= submit_tag t(:register), disable_with: "登録中..." %></td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <div class="row">
-  <div class="span11">
-  <table border="" id="table" align="left">
-    <tr><td class="draggable">A</td><td class="draggable">B</td><td class="draggable">C</td><td class="draggable">D</td><td class="draggable">E</td><td class="draggable">F</td><td class="draggable">G</td><td class="draggable">H</td><td class="draggable">I</td><td class="draggable">J</td><td class="draggable">K</td><td class="draggable">L</td><td class="draggable">M</td></tr>
-    <tr><td class="draggable">N</td><td class="draggable">O</td><td class="draggable">P</td><td class="draggable">Q</td><td class="draggable">R</td><td class="draggable">S</td><td class="draggable">T</td><td class="draggable">U</td><td class="draggable">V</td><td class="draggable">W</td><td class="draggable">X</td><td class="draggable">Y</td><td class="draggable">Z</td></tr>
-  </table>
-</div>
+  <div class="span12">
+    <table border="" id="table" align="left">
+      <tr><td class="draggable">A</td><td class="draggable">B</td><td class="draggable">C</td><td class="draggable">D</td><td class="draggable">E</td><td class="draggable">F</td><td class="draggable">G</td><td class="draggable">H</td><td class="draggable">I</td><td class="draggable">J</td><td class="draggable">K</td><td class="draggable">L</td><td class="draggable">M</td></tr>
+      <tr><td class="draggable">N</td><td class="draggable">O</td><td class="draggable">P</td><td class="draggable">Q</td><td class="draggable">R</td><td class="draggable">S</td><td class="draggable">T</td><td class="draggable">U</td><td class="draggable">V</td><td class="draggable">W</td><td class="draggable">X</td><td class="draggable">Y</td><td class="draggable">Z</td></tr>
+    </table>
+  </div>
 </div>
 
 

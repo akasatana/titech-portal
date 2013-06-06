@@ -1,0 +1,5 @@
+ja:
+  register: "登録"
+  activated:
+    models:
+      user: "ユーザー情報"

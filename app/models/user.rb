@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :tables, dependent: :destroy
   has_one :account, dependent: :destroy
+  has_many :documents
 end
